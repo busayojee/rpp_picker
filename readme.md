@@ -49,9 +49,9 @@ This repository contains the firmware and documentation for the **RPP Picker Rob
 At the heart of the RPP Picker Robot is a simple yet effective **bang–bang (on–off) controller** for each joint:
 
 1. **Error Calculation** 
-``` 
-   &emsp; \\[ e_i = targetPosition_i - currentPosition_i \\]  
-```
+<pre>
+`eᵢ = targetPositionᵢ - currentPositionᵢ`
+</pre>
    where `currentPosition_i` is read from the joint’s encoder.
 
 2. **On–Off Drive**  
