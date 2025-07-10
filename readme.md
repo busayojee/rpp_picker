@@ -59,8 +59,8 @@ eᵢ = targetPositionᵢ - currentPositionᵢ
    &emsp; - If `(eᵢ <= toleranceᵢ)`, command the servo to neutral (stop).
 
 3. **Kinematics** 
-    &emsp; - Forward Kinematics
-    &emsp; - Inverse Kinematics
+    - Forward Kinematics
+    - Inverse Kinematics
 
 
 4. **Dead-Band & Dwell**  
