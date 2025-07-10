@@ -8,8 +8,12 @@
 
 This repository contains the firmware and documentation for the **RPP Picker Robot**, a three-degree-of-freedom (Revolute–Prismatic–Prismatic) gantry-style robot designed for hook pick-and-place operations. The primary contribution of this project is the **closed-loop bang–bang (on–off) control algorithm** implemented on an Arduino platform, coupled with modular C++ code for kinematics, task sequencing, and encoder feedback. This project was made for the Robotics Implementation and Design course at the University of Sussex, UK
 
-![Image](static/image.png) |
-![Video](static/output.gif)  
+<table>
+  <tr>
+    <td><img src="static/image.png" width="300"/></td>
+    <td><img src="static/output.gif" width="300"/></td>
+  </tr>
+</table>
 
 > **Video of the RPP Picker Robot in operation** 
 
