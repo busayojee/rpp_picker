@@ -15,7 +15,7 @@ This repository contains the firmware and documentation for the **RPP Picker Rob
   </tr>
 </table>
 
-> **Video of the RPP Picker Robot in operation** 
+> **Image and Video of the RPP Picker Robot in operation** 
 
 ---
 
@@ -36,8 +36,11 @@ This repository contains the firmware and documentation for the **RPP Picker Rob
 - **3-DOF RPP mechanism**: One revolute joint (rotation about Z) and two prismatic joints (vertical lift and radial extension). Uses continuous servos for all joints  
 - **Closed-loop bang–bang control**: On–off feedback using rotary encoders for precise joint positioning.  
 - **Waypoint-based path planning**: Predefined joint-space waypoints with dwell times for reliable pick-and-place.  
-- **Modular C++ code**: Clear separation into classes for kinematics, servo control, encoder handling, EEPROM storage, and task sequencing.  
 - **EEPROM persistence**: Automatic saving and loading of encoder positions to retain zero references across power cycles.  
+
+### Workspace
+
+<img src="static/workspace.png" width="200"/>
 
 ---
 
@@ -77,7 +80,7 @@ src/
 ├── IK.h/.cpp          # Inverse Kinematics calculations
 ├── TaskRunner.h/.cpp  # Waypoint sequencing and dwell logic
 ├── Parser.h/.cpp      # Serial command parsing (Direct & IK modes)
-└── main.ino           # setup() & loop() wiring everything together
+└── main.cpp           # setup() & loop() wiring everything together
 
 ```
 ---
@@ -94,7 +97,7 @@ Select operation mode:
 
 - **Direct mode (D)**: send `J1,J2,J3\n ` over serial to command joint positions (e.g., 90,50,30).
 - **IK mode (I)**: send `X,Y,Z\n` to command Cartesian positions (e.g., 100,50,20).
-- **Task Sequence**: send TASK\n to run the predefined pick-and-place routine.
+- **Task Sequence**: send `TASK\n` to run the predefined pick-and-place routine.
 
 ## Collaborators
 
