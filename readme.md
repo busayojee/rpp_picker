@@ -6,9 +6,10 @@
 
 ## Overview
 
-This repository contains the firmware and documentation for the **RPP Picker Robot**, a three-degree-of-freedom (Revolute–Prismatic–Prismatic) gantry-style robot designed for hook pick-and-place operations. The primary contribution of this project is the **closed-loop bang–bang (on–off) control algorithm** implemented on an ESP32 (or Arduino) platform, coupled with modular C++ code for kinematics, task sequencing, and encoder feedback.
+This repository contains the firmware and documentation for the **RPP Picker Robot**, a three-degree-of-freedom (Revolute–Prismatic–Prismatic) gantry-style robot designed for hook pick-and-place operations. The primary contribution of this project is the **closed-loop bang–bang (on–off) control algorithm** implemented on an Arduino platform, coupled with modular C++ code for kinematics, task sequencing, and encoder feedback.
 
-![Video Placeholder](path/to/video.gif)  
+![Video Placeholder](static/IMG_0147.mp4)  
+
 > **Video of the RPP Picker Robot in operation** (Add your video file here)
 
 ---
@@ -39,12 +40,14 @@ This repository contains the firmware and documentation for the **RPP Picker Rob
 
 At the heart of the RPP Picker Robot is a simple yet effective **bang–bang (on–off) controller** for each joint:
 
-1. **Error Calculation**  
+1. **Error Calculation** 
+``` 
    &emsp; \\[ e_i = targetPosition_i - currentPosition_i \\]  
+```
    where `currentPosition_i` is read from the joint’s encoder.
 
 2. **On–Off Drive**  
-   &emsp; - If \\(|e_i| > tolerance_i\\), drive the servo at full speed in the direction of the error (CW or CCW).  
+   &emsp; - If `(|e_i| > tolerance_i\\)`, drive the servo at full speed in the direction of the error (CW or CCW).  
    &emsp; - If \\(|e_i| \\le tolerance_i\\), command the servo to neutral (stop).
 
 3. **Dead-Band & Dwell**  
@@ -71,6 +74,7 @@ src/
 ├── Parser.h/.cpp      # Serial command parsing (Direct & IK modes)
 └── main.ino           # setup() & loop() wiring everything together
 
+```
 ---
 
 ## Usage
