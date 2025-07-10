@@ -49,20 +49,25 @@ This repository contains the firmware and documentation for the **RPP Picker Rob
 At the heart of the RPP Picker Robot is a simple yet effective **bang–bang (on–off) controller** for each joint:
 
 1. **Error Calculation** 
-<pre>
-`eᵢ = targetPositionᵢ - currentPositionᵢ`
+&emsp; <pre>
+eᵢ = targetPositionᵢ - currentPositionᵢ
 </pre>
    where `currentPosition_i` is read from the joint’s encoder.
 
 2. **On–Off Drive**  
-   &emsp; - If `(|e_i| > tolerance_i\\)`, drive the servo at full speed in the direction of the error (CW or CCW).  
-   &emsp; - If \\(|e_i| \\le tolerance_i\\), command the servo to neutral (stop).
+   &emsp; - If `(eᵢ > toleranceᵢ)`, drive the servo at full speed in the direction of the error (CW or CCW).  
+   &emsp; - If `(eᵢ <= toleranceᵢ)`, command the servo to neutral (stop).
 
-3. **Dead-Band & Dwell**  
+3. **Kinematics** 
+    &emsp; - Forward Kinematics
+    &emsp; - Inverse Kinematics
+
+
+4. **Dead-Band & Dwell**  
    &emsp; - Once within tolerance, hold the position for a short **settle time** (e.g., 100 ms) before declaring the joint “at target.”  
    &emsp; - Scheduled **dwell times** at pick-and-place waypoints ensure stable gripper operation.
 
-4. **Task Sequencing**  
+5. **Task Sequencing**  
    &emsp; - Advance to the next waypoint only after **all** joints are within tolerance and settled.  
    &emsp; - Supports multi-step pick-and-place routines (e.g., approach, grasp, lift, move, release, retract).
 
