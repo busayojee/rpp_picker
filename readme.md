@@ -6,11 +6,12 @@
 
 ## Overview
 
-This repository contains the firmware and documentation for the **RPP Picker Robot**, a three-degree-of-freedom (Revolute–Prismatic–Prismatic) gantry-style robot designed for hook pick-and-place operations. The primary contribution of this project is the **closed-loop bang–bang (on–off) control algorithm** implemented on an Arduino platform, coupled with modular C++ code for kinematics, task sequencing, and encoder feedback.
+This repository contains the firmware and documentation for the **RPP Picker Robot**, a three-degree-of-freedom (Revolute–Prismatic–Prismatic) gantry-style robot designed for hook pick-and-place operations. The primary contribution of this project is the **closed-loop bang–bang (on–off) control algorithm** implemented on an Arduino platform, coupled with modular C++ code for kinematics, task sequencing, and encoder feedback. This project was made for the Robotics Implementation and Design course at the University of Sussex, UK
 
-![Video Placeholder](static/output.gif)  
+![Image](static/image.png) |
+![Video](static/output.gif)  
 
-> **Video of the RPP Picker Robot in operation** (Add your video file here)
+> **Video of the RPP Picker Robot in operation** 
 
 ---
 
@@ -79,4 +80,19 @@ src/
 
 ## Usage
 
-- 
+- **Power on the robot**; it will auto-home all joints and prompt:
+
+```
+Select operation mode:
+  D - Direct joint control
+  I - Inverse kinematics control
+```
+
+- **Direct mode (D)**: send `J1,J2,J3\n ` over serial to command joint positions (e.g., 90,50,30).
+- **IK mode (I)**: send `X,Y,Z\n` to command Cartesian positions (e.g., 100,50,20).
+- **Task Sequence**: send TASK\n to run the predefined pick-and-place routine.
+
+## Collaborators
+
+- Eren Irdiren
+- Thomas W Humphrey
